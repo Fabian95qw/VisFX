@@ -28,6 +28,11 @@ public class VisEdgeAdapter implements JsonSerializer<VisEdge>{
         jsonObject.addProperty("to",visEdge.getTo().getId());
         jsonObject.addProperty("label",visEdge.getLabel());
         jsonObject.addProperty("arrows",visEdge.getArrows());
+        jsonObject.addProperty("id", visEdge.getId());
+        if(!visEdge.getColor().isEmpty())
+        {
+        	jsonObject.add("color", new Gson().toJsonTree(visEdge.getColor()));
+        }
         return jsonObject;
     }
 }
